@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: CNN-Classifier
+Version: 0.0.0
+Summary: A python package for CNN app
+Home-page: https://github.com/Spandan-Roy/Image-classification-DL
+Author: Spandan-Roy
+Author-email: spandan.roy.stats@gmail.com
+Project-URL: Bug Tracker, https://github.com/Spandan-Roy/Image-classification-DL/issues
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Image-classification-DL
