@@ -36,3 +36,11 @@ pip install -r requirements.txt
 1. dvc init
 2. dvc repro
 3. dvc dag
+
+
+# Deployment Steps
+ 1. Build docker image of source code
+ 2. Push docker image to ECR
+ 3. Launch EC2
+ 4. Pull image from ECR to EC2
+ 5. Launch docker image in EC2
