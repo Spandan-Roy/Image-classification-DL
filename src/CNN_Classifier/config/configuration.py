@@ -1,8 +1,8 @@
 from CNN_Classifier.constants import *
 import os
-from CNN_Classifier.utils.common import read_yaml, create_directories
+from CNN_Classifier.utils.common import read_yaml, create_directories, save_json
 from CNN_Classifier.entity.config_entity import (DataIngestionConfig,
-                                                 PrepareBaseModelConfig,TrainingConfig)
+                                                 PrepareBaseModelConfig,TrainingConfig,EvaluationConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -62,4 +62,16 @@ class ConfigurationManager:
             params_is_augmentation=params.AUGMENTATION,
             params_image_size=params.IMAGE_SIZE
         )
-        return training_config        
+        return training_config
+    
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model="artifacts/training.model.h5",
+            training_data="artifacts/data_ingestion/kidney-ct-scan-image",
+            mlflow_uri="https://dagshub.com/Spandan-Roy/Image-classification-DL.mlflow",
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config 
+           
