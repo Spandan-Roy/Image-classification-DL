@@ -313,3 +313,44 @@ x======x]
 [2024-12-20 20:00:10,806: INFO: Stage_01_data_ingestion: >>> stage Data Ingestion Stage completed <<< 
 
 x======x]
+[2024-12-20 20:29:52,137: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.217.68.152:8080]
+[2024-12-20 20:29:52,137: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-12-20 20:30:31,415: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:30:31] "GET / HTTP/1.1" 200 -]
+[2024-12-20 20:31:28,680: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask_cors/extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Volumes/Personal/projects/vision/Image-classification-DL/app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+  File "/Volumes/Personal/projects/vision/Image-classification-DL/src/CNN_Classifier/pipeline/prediction.py", line 14, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/keras/src/saving/saving_api.py", line 238, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/spandy/miniforge3/envs/vision/lib/python3.9/site-packages/keras/src/saving/legacy/save.py", line 234, in load_model
+    raise IOError(
+OSError: No file or directory found at model/model.h5
+[2024-12-20 20:31:28,684: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:31:28] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2024-12-20 20:34:53,984: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.217.68.152:8080]
+[2024-12-20 20:34:53,984: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-12-20 20:34:59,832: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:34:59] "GET / HTTP/1.1" 200 -]
+[2024-12-20 20:35:08,726: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:35:08] "POST /predict HTTP/1.1" 200 -]
+[2024-12-20 20:35:37,416: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:35:37] "POST /predict HTTP/1.1" 200 -]
+[2024-12-20 20:35:40,805: INFO: _internal: 127.0.0.1 - - [20/Dec/2024 20:35:40] "POST /predict HTTP/1.1" 200 -]
